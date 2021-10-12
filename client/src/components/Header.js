@@ -16,10 +16,6 @@ const Header = () => {
 					<Avatar
 						className={"avatar"}
 						src={"../logo.svg"}
-						sx={{
-							height: 326,
-							width: 326,
-						}}
 					/>
 				</Grid>
 			</Container>

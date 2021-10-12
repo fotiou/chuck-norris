@@ -12,7 +12,10 @@
     --quote-container-width: 604px;
     --quote-icon-width: 62px;
     --quote-icon-height: 52px;
-
+    --avatar-height: 326px;
+    --avatar-width: 326px;
+    --avatar-margin-top: 95px;
+    --header-margin-bottom: 200px;
 
 }
 body {
@@ -61,19 +64,21 @@ code {
 }
 
 .header {
-	height: calc(95px + (362px / 2));
+	height: calc(var(--avatar-margin-top) + (var(--avatar-height) / 2));
 	background-image: url("http://localhost:3000/stripe.svg");
 	background-repeat: repeat;
 	overflow: visible;
-	margin-bottom: calc(362px / 2);
+	margin-bottom: var(--header-margin-bottom);
 }
 
-.avatar {
+.header .avatar {
 	background-color: var(--white);
-	margin-top: 95px;
+	margin-top: var(--avatar-margin-top);
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,.22);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,.22);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,.22);
+	height: var(--avatar-height);
+	width: var(--avatar-width);
 }
 
 .header .avatar {

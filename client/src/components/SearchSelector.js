@@ -6,11 +6,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 export default function SearchSelector(props) {
-	const [value, setValue] = React.useState(0);
-
-	const handleChange = (event, newValue) => {
-		setValue(newValue);
-	};
 
 	const selectedClass = (value) => {
 		return window.location.pathname === value ? "selected " : "";
@@ -18,14 +13,17 @@ export default function SearchSelector(props) {
 
 	return (
 		<React.Fragment>
-			<Container disableGutters maxWidth={false}>
+			<Container
+				disableGutters
+				maxWidth={false}
+			>
 				<Grid
 					container
 					direction="column"
 					alignItems="center"
 					justifyContent="center"
 				>
-					<Tabs value={value} onChange={handleChange}>
+					<Tabs>
 						<Link
 							href="/"
 							sx={{
