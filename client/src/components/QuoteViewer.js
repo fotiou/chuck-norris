@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-
 const QuoteViewer = (props) => {
-
 	return (
 		<React.Fragment>
 			<Grid
@@ -13,9 +11,13 @@ const QuoteViewer = (props) => {
 				direction="column"
 				alignItems="center"
 				justifyContent="center"
-			>	
-				<img src="../quotes.svg" className="quote-image left"/>
-				<Box sx={{ width: "100%", maxWidth: 604 }} className={"quote"}>
+			>
+				<Box className={"quote"}>
+					<img
+						src="../quotes.svg"
+						className="quote-image left"
+						alt="quotes icon"
+					/>
 					<Typography
 						variant="h3"
 						color="inherit"
@@ -23,8 +25,12 @@ const QuoteViewer = (props) => {
 					>
 						{props.quote}
 					</Typography>
+					<img
+						src="../quotes.svg"
+						className="quote-image right"
+						alt="quotes icon"
+					/>
 				</Box>
-				<img src="../quotes.svg"  className="quote-image right"/>
 			</Grid>
 		</React.Fragment>
 	);
