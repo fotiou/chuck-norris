@@ -1,18 +1,6 @@
-import React, { useEffect, useState } from "react";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import React from "react";
 import Box from "@mui/material/Box";
-import PropTypes from "prop-types";
-import Collapse from "@mui/material/Collapse";
-import IconButton from "@mui/material/IconButton";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import QuoteViewer from "./QuoteViewer";
 import DataTable from "react-data-table-component";
 
@@ -50,19 +38,6 @@ const columns = [
 	},
 ];
 
-const data = [
-	{
-		id: 1,
-		title: "Beetlejuice",
-		year: "1988",
-	},
-	{
-		id: 2,
-		title: "Ghostbusters",
-		year: "1984",
-	},
-];
-
 const formatDateTime = (timestamp) => {
 	const dateTime = new Date(timestamp);
 	const date = dateTime.getDate();
@@ -76,7 +51,6 @@ const formatDateTime = (timestamp) => {
 };
 
 const QuoteGrid = (props) => {
-
 	return (
 		<React.Fragment>
 			<Grid

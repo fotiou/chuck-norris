@@ -1,29 +1,12 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
-import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
-import { Context as MetaDataContext } from "../context/metaDataProvider";
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-	PaperProps: {
-		style: {
-			maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-			width: 250,
-		},
-	},
-};
 
 export default function SearchBar(props) {
-	const metaData = useContext(MetaDataContext);
 
 	return (
 		<React.Fragment>
