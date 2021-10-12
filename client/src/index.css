@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,600,600i,700,700i|Poppins:200,300,400,400i,500,600,700i&display=swap");
+:root {
+    --primary: #F15A24;
+    --secondary: #FFF2EE;
+    --blue: #29ABE2;
+    --primary-background-color: #FBFCFF;
+    --secondary-background-color: #13B8EA;
+    --light-gray: #EFF4F7;
+    --white: #ffffff;
+    --orange: #F15A24;
+    --text-color: #16303C;
+}
+body {
+  margin: 0 0 50px 0 ;
+  font-family:'Roboto', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-background-color);
+  color: var(--text-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.search-bar {
+	max-width: 1000px;
+	min-height: 104px;
+	background-color: var(--secondary);
+	border-radius: 3px 3px 0 0;
+	margin-top: 50px;
+}
+
+.quote {
+	border-width: 5px;
+	border-color: var(--blue);
+	border-style: dashed dashed solid solid;
+}
+
+.quote h3 {
+	border-color: var(--blue);
+	color: var(--blue);
+	font-size: 36px;
+	line-height: 200%;
+	padding:  50px;
+	text-align: center;
+}
+
+.expanded-row {
+	padding:  80px 136px;
+	width: 100%;
+	background-color: var(--light-gray);
+}
+
+.header {
+	height: calc(95px + (362px / 2));
+	background-image: url("http://localhost:3000/stripe.svg");
+	background-repeat: repeat;
+	overflow: visible;
+	margin-bottom: calc(362px / 2);
+}
+
+.avatar {
+	background-color: var(--white);
+	margin-top: 95px;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,.22);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,.22);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,.22);
+}
+
+.header .avatar {
+	overflow: visible;
+}
+
+.avatar img{
+	object-fit: contain;
+}
+
+.MuiTabs-indicator {
+	display: none;
+}
+
+button.tab {
+	border: 1px solid var(--orange);
+	background-color: var(--white);
+	color:var(--orange);
+	text-transform: none;
+	font-size: 15px;
+	opacity: 1;
+}
+
+button.tab.left {
+	border-radius: 3px 0px 0px 3px;
+}
+
+button.tab.right {
+	border-radius: 0px 3px 3px 0px;
+}
+
+button.tab.selected {
+	background-color: var(--orange);
+	color: var(--white);
+}
+.label {
+	text-align: right;
+}
+button.submit {
+	background-color: var(--orange);
+	border-color: var(--orange);
+	color: var(--white);;
+	margin-left: 20px;
+	height: 55px;
+}
+
+button.submit:hover {
+	background-color: var(--white);
+	border-color: var(--white);
+	color:var(--orange);;
+}
+
+.input {
+	background-color: var(--white);
+}
+
+tr, .expanded-row {
+	cursor: pointer;
+}
+
+.quote-image.left {
+    position: absolute;
+    margin-top: -210px;
+    margin-left: -305px;
+}
+.quote-image.right {
+    position: absolute;
+    margin-top: 210px;
+    margin-left: 305px;
+    transform: rotate(180deg);
+}
+
+.random-quote {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px;
+    background-color: white;
+}
