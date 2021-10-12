@@ -30,6 +30,18 @@ const QuoteGrid = (props) => {
 		setQuotes(list);
 	};
 
+	const formatDateTime = (timestamp) => {
+		const dateTime = new Date(timestamp);
+		const date = dateTime.getDate();
+		const month = dateTime.toLocaleString("default", { month: "short" });
+		const time = dateTime.toLocaleString("default", {
+			timeStyle: "short",
+			hour12: true,
+		});
+		const year = dateTime.getFullYear();
+		return `${month} ${date}, ${year} ${time.toUpperCase()}`;
+	};
+
 	function Row(props) {
 		const { row } = props;
 		const [open, setOpen] = React.useState(false);
@@ -44,7 +56,9 @@ const QuoteGrid = (props) => {
 						{row.id}
 					</TableCell>
 					<TableCell align="right">{row.categories}</TableCell>
-					<TableCell align="right">{row.created_at}</TableCell>
+					<TableCell align="right">
+						{formatDateTime(row.created_at)}
+					</TableCell>
 				</TableRow>
 				{row.expanded && (
 					<Box className={"expanded-row"}>
