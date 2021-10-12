@@ -16,8 +16,8 @@
     --avatar-width: 326px;
     --avatar-margin-top: 95px;
     --header-margin-bottom: 200px;
-
 }
+
 body {
   margin: 0 0 50px 0 ;
   font-family:'Roboto', 'Helvetica Neue', sans-serif;
@@ -58,7 +58,7 @@ code {
 }
 
 .expanded-row {
-	padding:  80px 136px;
+	padding:  80px 0px;
 	width: 100%;
 	background-color: var(--light-gray);
 }
@@ -114,21 +114,24 @@ button.tab.selected {
 	background-color: var(--orange);
 	color: var(--white);
 }
+
 .label {
 	text-align: right;
 }
+
 button.submit {
 	background-color: var(--orange);
 	border-color: var(--orange);
 	color: var(--white);;
-	margin-left: 20px;
+	margin-left: 10px;
 	height: 55px;
+	width: 120px;
 }
 
 button.submit:hover {
 	background-color: var(--white);
-	border-color: var(--white);
-	color:var(--orange);;
+	border-color: var(--orange);
+	color:var(--orange);
 }
 
 .input {
@@ -143,7 +146,7 @@ tr, .expanded-row {
 	background-color: var(--white);
 }
 
-.expanded-row  .quote-image {
+.expanded-row .quote-image {
 	background-color: var(--light-gray);
 }
 

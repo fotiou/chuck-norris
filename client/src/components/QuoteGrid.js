@@ -14,60 +14,68 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import QuoteViewer from "./QuoteViewer";
+import DataTable from "react-data-table-component";
+
+const ExpandedComponent = ({ data }) => (
+	<React.Fragment>
+		<Grid
+			container
+			direction="column"
+			alignItems="center"
+			justifyContent="center"
+		>
+			<Box sx={{ width: "100%", maxWidth: 1000 }}>
+				<Box className={"expanded-row"}>
+					<QuoteViewer quote={data.value} />
+				</Box>
+			</Box>
+		</Grid>
+	</React.Fragment>
+);
+const columns = [
+	{
+		name: "ID",
+		selector: (row) => row.id,
+		sortable: true,
+	},
+	{
+		name: "Categories",
+		selector: (row) => row.categories,
+		sortable: true,
+	},
+	{
+		name: "Date Created",
+		selector: (row) => formatDateTime(row.created_at),
+		sortable: true,
+	},
+];
+
+const data = [
+	{
+		id: 1,
+		title: "Beetlejuice",
+		year: "1988",
+	},
+	{
+		id: 2,
+		title: "Ghostbusters",
+		year: "1984",
+	},
+];
+
+const formatDateTime = (timestamp) => {
+	const dateTime = new Date(timestamp);
+	const date = dateTime.getDate();
+	const month = dateTime.toLocaleString("default", { month: "short" });
+	const time = dateTime.toLocaleString("default", {
+		timeStyle: "short",
+		hour12: true,
+	});
+	const year = dateTime.getFullYear();
+	return `${month} ${date}, ${year} ${time.toUpperCase()}`;
+};
 
 const QuoteGrid = (props) => {
-	const [quotes, setQuotes] = useState(props.quotes);
-
-	const toogleQuote = (id) => {
-		const list = [...quotes];
-		list.forEach((quote) => {
-			if (id === quote.id) {
-				quote.expanded = !quote.expanded;
-			} else {
-				quote.expanded = false;
-			}
-		});
-		setQuotes(list);
-	};
-
-	const formatDateTime = (timestamp) => {
-		const dateTime = new Date(timestamp);
-		const date = dateTime.getDate();
-		const month = dateTime.toLocaleString("default", { month: "short" });
-		const time = dateTime.toLocaleString("default", {
-			timeStyle: "short",
-			hour12: true,
-		});
-		const year = dateTime.getFullYear();
-		return `${month} ${date}, ${year} ${time.toUpperCase()}`;
-	};
-
-	function Row(props) {
-		const { row } = props;
-		const [open, setOpen] = React.useState(false);
-
-		return (
-			<React.Fragment>
-				<TableRow
-					sx={{ "& > *": { borderBottom: "unset" } }}
-					onClick={() => toogleQuote(row.id)}
-				>
-					<TableCell component="th" scope="row">
-						{row.id}
-					</TableCell>
-					<TableCell align="right">{row.categories}</TableCell>
-					<TableCell align="right">
-						{formatDateTime(row.created_at)}
-					</TableCell>
-				</TableRow>
-				{row.expanded && (
-					<Box className={"expanded-row"}>
-						<QuoteViewer quote={row.value} />
-					</Box>
-				)}
-			</React.Fragment>
-		);
-	}
 
 	return (
 		<React.Fragment>
@@ -76,29 +84,16 @@ const QuoteGrid = (props) => {
 				direction="column"
 				alignItems="center"
 				justifyContent="center"
-				className={"table-container"}
 			>
 				<Box sx={{ width: "100%", maxWidth: 1000 }}>
-					<TableContainer component={Paper}>
-						<Table aria-label="collapsible table">
-							<TableHead>
-								<TableRow>
-									<TableCell>ID</TableCell>
-									<TableCell align="right">
-										Category
-									</TableCell>
-									<TableCell align="right">
-										Date Created
-									</TableCell>
-								</TableRow>
-							</TableHead>
-							<TableBody>
-								{quotes.map((row) => (
-									<Row key={row.id} row={row} />
-								))}
-							</TableBody>
-						</Table>
-					</TableContainer>
+					<DataTable
+						columns={columns}
+						data={props.quotes}
+						expandableRows
+						defaultSortFieldId={3}
+						pagination
+						expandableRowsComponent={ExpandedComponent}
+					/>
 				</Box>
 			</Grid>
 		</React.Fragment>
