@@ -9,6 +9,11 @@
     --white: #ffffff;
     --orange: #F15A24;
     --text-color: #16303C;
+    --quote-container-width: 604px;
+    --quote-icon-width: 62px;
+    --quote-icon-height: 52px;
+
+
 }
 body {
   margin: 0 0 50px 0 ;
@@ -36,6 +41,8 @@ code {
 	border-width: 5px;
 	border-color: var(--blue);
 	border-style: dashed dashed solid solid;
+	width: 100%;
+	max-width: var(--quote-container-width);
 }
 
 .quote h3 {
@@ -127,15 +134,23 @@ tr, .expanded-row {
 	cursor: pointer;
 }
 
+.quote-image {
+	background-color: var(--white);
+}
+
+.expanded-row  .quote-image {
+	background-color: var(--light-gray);
+}
+
 .quote-image.left {
     position: absolute;
-    margin-top: -210px;
-    margin-left: -305px;
+    margin-top: calc((-1)*var(--quote-icon-height)/2);
+    margin-left: calc((-1)*var(--quote-icon-width)/2);
 }
 .quote-image.right {
     position: absolute;
-    margin-top: 210px;
-    margin-left: 305px;
+    margin-top: calc((-1)*var(--quote-icon-height)/2);
+    margin-left: calc(var(--quote-container-width) - var(--quote-icon-width)/2);
     transform: rotate(180deg);
 }
 
